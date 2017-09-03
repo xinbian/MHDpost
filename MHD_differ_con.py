@@ -7,28 +7,36 @@ nx=ny=nz = input("input the simulation size:")
 
 #specify rerun_tag
 istep=raw_input("input merge time step (in the form of 000010, for reruntag=10):")
+variable=['V_x','V_y','V_z','B_x','B_y','B_z']
+mylist = ['Fields/','P',variable[0],'/',istep]
+filepath = delimiter.join(mylist)  
+delimiteratabk = h5file.get(filepath)
+vx = np.array(databk)
 
-for variable in ['converb0_1','converb0_2','converb0_4','conversion']:
-	#generate magnetic conversion difference group
-	delimiter = ''
-	mylist = ['diff/','P', variable]
-	filepath = delimiter.join(mylist)
-	h5file.create_group(filepath)
-	#obtain 32, 16 and take subtraction
-	mylist = ['Fields/','32',variable,'/',istep]
-	filepath = delimiter.join(mylist)  
-	delimiteratabk = h5file.get(filepath)
-	m1 = np.array(databk)
-	#obtain converion_B0
-	mylist = ['Fields/','16',variable,'/',istep]
-	filepath = delimiter.join(mylist)  
-	databk = h5file.get(filepath)
-	m2 = np.array(databk)
-	#calculate difference
-	m1=m1-m2
-	#write to hdf5 file
-	mylist = ['diff/',variable,'/',istep]
-	filepath = delimiter.join(mylist)
-	h5file.create_dataset(filepath,data=m1)
+mylist = ['Fields/','P',variable[1],'/',istep]
+filepath = delimiter.join(mylist)  
+delimiteratabk = h5file.get(filepath)
+vy = np.array(databk)
+
+mylist = ['Fields/','P',variable[2],'/',istep]
+filepath = delimiter.join(mylist)  
+delimiteratabk = h5file.get(filepath)
+vz = np.array(databk)
+
+mylist = ['Fields/','P',variable[3],'/',istep]
+filepath = delimiter.join(mylist)  
+delimiteratabk = h5file.get(filepath)
+bx = np.array(databk)
+
+mylist = ['Fields/','P',variable[4],'/',istep]
+filepath = delimiter.join(mylist)  
+delimiteratabk = h5file.get(filepath)
+by = np.array(databk)
+
+mylist = ['Fields/','P',variable[5],'/',istep]
+filepath = delimiter.join(mylist)  
+delimiteratabk = h5file.get(filepath)
+bz = np.array(databk)
+
 
 h5file.close()
