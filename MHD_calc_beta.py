@@ -37,6 +37,12 @@ mylist = ['Fields/','P',variable[5],'/',istep]
 filepath = delimiter.join(mylist)  
 delimiteratabk = h5file.get(filepath)
 bz = np.array(databk)
+#store kinetic energy it in vx
+vx=(vx*vx+vy*vy+vz*vz)/2
+bx=bx*bx+by*by+bz*bz
+v2_mean=np.mean(vx)
+b2_mean=np.mean(bx)
+beta=v2/b2
 
-
+print "plasma parameter beta is ", beta
 h5file.close()
