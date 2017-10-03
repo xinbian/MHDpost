@@ -3,7 +3,7 @@
 Created on Wed Dec 21 16:25:53 2016
 
 @author: Xin
-
+#calcuate fields PDF 
 """
 import h5py
 import numpy as np

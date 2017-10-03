@@ -1,7 +1,8 @@
 import h5py
 import numpy as np
 
-#specify the old simulation size, it can be expanded two times each time. e.g. 4^3 to 8^3
+#calculate filtered field#
+#need to specify wavenumber#
 
 nx=ny=nz = input("input the simulation size:")
 
