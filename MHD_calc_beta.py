@@ -6,7 +6,7 @@ import numpy as np
 nx=ny=nz = input("input the simulation size:")
 
 #specify rerun_tag
-istep=raw_input("input merge time step (in the form of 000010, for reruntag=10):")
+istep=raw_input("input time step (in the form of 000010, for reruntag=10):")
 variable=['V_x','V_y','V_z','B_x','B_y','B_z']
 mylist = ['Fields/','P',variable[0],'/',istep]
 filepath = delimiter.join(mylist)  
